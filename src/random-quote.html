@@ -5,10 +5,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>FreeCodeCamp Random Quote Exercise</title>
+        #ifdef RQ_JQUERY
+        <title>FreeCodeCamp Random Quote Exercise (version using jquery)</title>
+        #else
+        <title>FreeCodeCamp Random Quote Exercise (version without jquery)</title>
+        #endif
 
         <link href="random-quote.css" rel="stylesheet">
-        <!-- <link href="css/bootstrap.min.css" rel="stylesheet">  -->
         <link href="css/font-awesome.min.css" rel="stylesheet">
     </head>
 
@@ -20,7 +23,7 @@
 
                 <!-- ><div class="quote-text-with-quotes"> -->
                     <i class="fa fa-quote-left" aria-hidden="true"></i>
-                    <span class="quote-text">Silence is golden</span>
+                    <span class="quote-text"></span>
                     <i class="fa fa-quote-right" aria-hidden="true"></i>
 
 
@@ -29,7 +32,7 @@
             <div class="main-bottom-box">
 
                 <div class="left-button-box">
-                    <a href="https://twitter.com/intent/tweet?hashtags=chuck&amp;text=XYZ" id="tweet-button-anchor">
+                    <a target="_blank" id="tweet-button-anchor">
                         <button class="bottom-button" id="tweet-button">
                             Tweet
                         </button>
@@ -51,23 +54,25 @@
                 Page by <a href="https://jw120.github.io">jw120</a>.
             </p>
             <p>
-                <a href="random-quote-without-jquery.html">Non-jquery version</a>
+                #ifdef RQ_JQUERY
+                This version uses jQuery (<a href="random-quote-no-jquery.html">alternate version without jQuery</a>)
+                #else
+                This version does not use jQuery (<a href="random-quote.html">alternative version with jQuery</a>)
+                #endif
             </p>
 
         </div>
 
+        #ifdef RQ_JQUERY
         <script src="js/jquery.min.js">
         </script>
-
-        <!-- <script src="js/bootstrap.min.js">
-        </script>
-           -->
-
-<!--          <script src="http://platform.twitter.com/widgets.js" id="twitter-wjs">
-        </script> -->
-
         <script src="random-quote.js">
         </script>
+        #else
+        <script src="random-quote-no-jquery.js">
+        </script>
+        #endif
+
 
     </body>
 </html>
