@@ -1,5 +1,4 @@
 
-TODO
+FreeCodeCamp Random Quote exercise
 
-* Add non-query version - pre-processor on html? or js?
-* Add remote github
+Simple HTML/CSS with Javascript. Versions with and without jQuery.
