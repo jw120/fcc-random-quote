@@ -4,21 +4,30 @@
     "description": "FreeCodeCamp random quote generator exercise",
     "main": "index.js",
     "config": {
-        "my_src": "compiled/src/random-quote.js src/random-quote.html src/random-quote.css",
-        "lib_src": "node_modules/bootstrap/dist/css/bootstrap.min.css node_modules/bootstrap/dist/js/bootstrap.min.js node_modules/jquery/dist/jquery.min.js"
+        "static": "src/random-quote.html src/random-quote.css",
+        "compiled": "compiled/src/random-quote.js",
+        "libcss": "node_modules/bootstrap/dist/css/bootstrap.min.css  node_modules/font-awesome/css/font-awesome.min.css",
+        "libjs": "node_modules/bootstrap/dist/js/bootstrap.min.js node_modules/jquery/dist/jquery.min.js",
+        "libdir": "node_modules/font-awesome/fonts"
     },
     "scripts": {
         "lint": "eslint src",
         "precompile": "npm run lint",
         "compile": "babel src/random-quote.js --out-dir compiled/",
-        "prebuild": "npm run compile",
-        "build": "cp $npm_package_config_my_src $npm_package_config_lib_src dist/",
+        "prebuild:compiled": "npm run compile",
+        "build:compiled": "cp $npm_package_config_compiled dist/",
+        "build:static": "cp $npm_package_config_static dist/",
+        "build:libcss": "cp $npm_package_config_libcss dist/css/",
+        "build:libjs": "cp $npm_package_config_libjs dist/js/",
+        "build:libdir": "cp -R $npm_package_config_libdir dist/",
+        "build": "npm run build:compiled && npm run build:static && npm run build:libcss && npm run build:libjs && npm run build:libdir",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "author": "jw1200@gmail.com",
     "license": "MIT",
     "dependencies": {
         "bootstrap": "^3.3.6",
+        "font-awesome": "^4.6.1",
         "jquery": "^2.2.3"
     },
     "devDependencies": {
