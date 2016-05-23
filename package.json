@@ -17,7 +17,7 @@
     "build:libjs": "cp $npm_package_config_libjs dist/js/",
     "build:libcss": "cp $npm_package_config_libcss dist/css/",
     "build:static": "cp $npm_package_config_static dist/",
-    "build:preprocessed": "cpp -P -C -DRQ_JQUERY src/random-quote.html >dist/random-quote.html && cpp -P -C src/random-quote.html >dist/random-quote-no-jquery.html",
+    "build:preprocessed": "cpp -P -C -DRQ_JQUERY src/index.html >dist/index.html && cpp -P -C src/index.html >dist/index-no-jquery.html",
     "build:compiled": "cp $npm_package_config_compiled dist/",
     "prebuild:compiled": "npm run compile",
     "compile": "babel src/random-quote.js src/random-quote-no-jquery.js --out-dir compiled/",
